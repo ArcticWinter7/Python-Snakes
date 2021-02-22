@@ -272,7 +272,7 @@ while gamerunning:
 
         # def drawinfo(text,x,y,font_size,color=(0,0,0)):
 
- 
+
     while endgame:
         screen.fill((0,255,0))
         drawinfo("GAME OVER", 250, 350, 60, (0,0,0))
