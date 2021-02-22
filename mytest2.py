@@ -42,7 +42,7 @@ pen.color("white")
 pen.penup()
 pen.hideturtle()
 pen.goto(0, 260)
-pen.write("Score: 0  High Score: 0", align="center", font=("Courier", 24, "normal"))
+pen.write("Score: 0  High Score: 0", align="center", font=("robotto", 24, "normal"))
 
 # Functions
 def go_up():
@@ -96,7 +96,7 @@ while True:
         score = 0
         delay = 0.1
         pen.clear()
-        pen.write("Score: {}  High Score: {}".format(score, high_score), align="center", font=("Courier", 24, "normal")) 
+        pen.write("Score: {}  High Score: {}".format(score, high_score), align="center", font=("robotto", 24, "normal")) 
     # Check for a collision with the food
     if head.distance(food) < 20:
         x = random.randint(-290, 290)
@@ -113,7 +113,7 @@ while True:
         if score > high_score:
             high_score = score
         pen.clear()
-        pen.write("Score: {}  High Score: {}".format(score, high_score), align="center", font=("Courier", 24, "normal")) 
+        pen.write("Score: {}  High Score: {}".format(score, high_score), align="center", font=("robotto", 24, "normal")) 
     for index in range(len(segments)-1, 0, -1):
         x = segments[index-1].xcor()
         y = segments[index-1].ycor()
@@ -135,7 +135,7 @@ while True:
             score = 0
             delay = 0.1
             pen.clear()
-            pen.write("Score: {}  High Score: {}".format(score, high_score), align="center", font=("Courier", 24, "normal"))
+            pen.write("Score: {}  High Score: {}".format(score, high_score), align="center", font=("robotto", 24, "normal"))
 
     time.sleep(delay)
 
