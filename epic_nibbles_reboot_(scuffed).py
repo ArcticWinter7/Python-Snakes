@@ -4,6 +4,8 @@ import time
 import os
 import random
 from pygame import mixer  # Load the popular external library
+from pygame import image
+
 
 # initialising the components
 pygame.init()
@@ -91,6 +93,18 @@ def drawapple(applex_,appley_,appleonscreen_):
     pygame.draw.circle(screen, (snakecolor), (applex_, appley_), 10)
     return(applex, appley, appleonscreen)
 
+
+#test eatapple function (snake collision with apple)
+def testeatapple(applex, appley, snakex, snakey, expected_collision):
+    xdiff = applex-snakex[0]
+    ydiff = appley-snakey[0]
+    expected_collision = False
+    if xdiff >= -20 and xdiff <= 20 and ydiff >= -20 and ydiff <= 20:
+        expected_collision = True
+    return expected_collision
+
+
+
 # checks if the apple has been eaten
 def eatapple(applex, appley, snakex, snakey):
     global appleonscreen
@@ -99,7 +113,7 @@ def eatapple(applex, appley, snakex, snakey):
     global speed
     xdiff = applex-snakex[0]
     ydiff = appley-snakey[0]
-
+    iexpectcollision = False 
     if xdiff >= -20 and xdiff <= 20 and ydiff >= -20 and ydiff <= 20:
         # global mainmusic.pause()
         # global sound_effect_.play()
@@ -109,6 +123,10 @@ def eatapple(applex, appley, snakex, snakey):
         appleeaten = True
         speed = speed - 2 #this accounts for the increase in speed when eating an apple
         return(score , appleonscreen, appleeaten, speed)
+        iexpectcollision = True        
+    collisionresult = testeatapple(applex, appley, snakex, snakey, iexpectcollision)
+    if collisionresult == iexpectcollision:
+        print("collision result accurate")
 
 # checks if the snake ran outside the borders or into itself
 def gameover(snakex, snakey):
@@ -164,8 +182,11 @@ while gamerunning:
         drawinfo("to self, property, or loved ones", 220, 215, 20, (0,0,0))
         drawinfo("as a result of using this program", 220, 230, 20, (0,0,0))
         # instruction
+        drawinfo("Epic cursed nibbles reboot (scuffed)", 120, 320, 40, (0,0,0))
         drawinfo("Press space to start", 120, 380, 60, (0,0,0))
 
+        asurf = pygame.image.load(os.path.join('jerma_sus.png'))
+        screen.blit(asurf,(350,500))
         pygame.display.update()
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
@@ -175,7 +196,6 @@ while gamerunning:
 
     #snake active loop
     while running:
-        
         pygame.time.delay(speed)
         # print(speed)
         #go through events and see if close button was click
