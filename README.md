@@ -1,0 +1,3 @@
+# nibbles-remke
+This code replicates a classic JavaScript snakes game, but with an unusual twist.....
+!!!Volume warning, do not use headphones over 2% max system volume!!!
