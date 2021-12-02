@@ -1,4 +1,4 @@
-# nibbles-remke
+# Python-Snakes
 This code replicates a classic JavaScript snakes game, but with an unusual twist.....
 !!!Volume warning - do not use headphones over 2% max system volume!!!
 !!!Epilepsy warning - This content will almost certainly trigger seizures for people with photosensitive epilepsy. Discretion is advised!!!
